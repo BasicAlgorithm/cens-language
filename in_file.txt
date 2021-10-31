@@ -1,0 +1,18 @@
+/* 
+Creating neurons
+*/
+
+neuron a(inhibitory);
+neuron b(excitatory);
+neuron c(excitatory);
+neuron d(inhibitory);
+
+// Innervating
+a >> c >> d;
+a >> b;
+
+// Defining input
+SendCurrent(a);
+
+// Initialization
+RunSystem;
