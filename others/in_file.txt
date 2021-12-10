@@ -1,0 +1,72 @@
+/* 
+Creating neurons
+*/
+
+neuron a(inhibitory);neuron b(excitatory);
+neuron c(xcitatory);neuron d(inhibitory,100);
+
+// Innervating
+aaa >> 11;
+a >> b >> c; a >> b >> c >> d >> e;
+
+  
+a + b;
+a >> d;
+d >> c;
+
+// Defining input
+SendCurrent(a,b);
+SendCurrent(a);
+Hola(a);
+
+// Initialization
+Run;
+RunSystem;
+
+
+/*
+goal -> expr
+
+expr -> define ; expr'
+expr -> innervate ; expr'
+expr -> input ; expr'
+expr -> start ;
+
+expr' -> define ; expr'
+expr' -> innervate ; expr'
+expr' -> input ; expr'
+expr' -> ''
+
+define -> neuron id ( param_d )
+param_d -> inhibitory param_d'
+param_d -> excitatory param_d'
+param_d' -> , num
+param_d' -> ''
+
+innervate -> id >> id innervate'
+innervate' -> >> id innervate'
+innervate' -> ''
+
+input -> SendCurrent ( id param_i )
+param_i -> , id param_i
+param_i -> ''
+
+start -> RunSystem
+
+
+FIRST +
+
+            FIRST                              FOLLOW
+goal        {exp}	                              {$}	          
+expr        {neuron,id,SendCurrent,RunSystem}	  {undefined}	  
+expr'       {'',neuron,id,SendCurrent}	        {}	          
+define      {neuron}	                          {;}	          
+param_d     {inhibitory,excitatory}	            {)}	          
+param_d'    {,,''}	                            {)}	          
+innervate   {id}	                              {;}	          
+innervate'  {>>,''}	                            {;}	          
+input       {SendCurrent}	                      {;}	          
+param_i     {,,''}	                            {)}	          
+start       {RunSystem}	                        {}	          
+
+*/

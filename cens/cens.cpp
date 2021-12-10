@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 
-#include "src/LL1.hpp"
-#include "src/parser.hpp"
-#include "src/scanner.hpp"
+#include "LL1.hpp"
+#include "parser.hpp"
+#include "scanner.hpp"
 
 void HowToUse() {
   std::cout << "error: Not enough arguments.\n" << std::endl;
