@@ -10,7 +10,7 @@
 #include <string>
 #include <vector>
 
-#include "LL1.hpp"
+#include "LL1Settings.hpp"
 
 namespace CENS {
 

@@ -10,7 +10,8 @@
 #include <string>
 #include <vector>
 
-#include "LL1.hpp"
+#include "AST/AST.hpp"
+#include "LL1Settings.hpp"
 #include "scanner.hpp"
 #include "trees/beautytree.h"
 #include "trees/censnode.hpp"
@@ -91,6 +92,9 @@ void HandlingError(std::vector<std::string>::iterator word, int index,
 }
 
 void RunParser() {
+  // AST
+  AST ast_tree;
+
   // Loop to analize each line of code
   for (int i = 0; i < static_cast<int>(output_scanner.size()); i++) {
     CensStack stack("$");
@@ -100,7 +104,7 @@ void RunParser() {
 
     // beauty tree
     CensNode *head_beauty_tree = new CensNode(gramaticaLL1[0][0]);
-    std::list<CensNode *> stack_nodes{head_beauty_tree};
+    std::list<CensNode *> tmp_list_beauty_tree{head_beauty_tree};
 
     // couts
     bool well_finish = true;
@@ -115,8 +119,10 @@ void RunParser() {
     }
 
     // Analizing one line of code
+    int steps = 1;
     while (true) {
       tree.Add(stack.main_stack);
+
       if ((stack.Size() == 1 && (word == --output_scanner[i].end())) &&
           (stack.TOS() == *word)) { /* end of reading file */
         if (print_info)
@@ -125,13 +131,14 @@ void RunParser() {
 
       } else if (stack.IsTOSTerminal()) { /* TOS is terminal */
         if (stack.TOS() == *word) {
-          // add a beauty tree
-          (*stack_nodes.begin())->data =
-              "[" + (*stack_nodes.begin())->data + "]";
-          stack_nodes.pop_front();
+          // add a node to beauty tree
+          (*tmp_list_beauty_tree.begin())->data =
+              "[" + (*tmp_list_beauty_tree.begin())->data + "]";
+          tmp_list_beauty_tree.pop_front();
 
           stack.PopStack();
           word++;
+          steps++;
         } else {
           well_finish = false;
           HandlingError(word, i, stack.TOS(), error_logs, true);
@@ -144,15 +151,20 @@ void RunParser() {
           stack.PopStack();
           stack.AddExpand(line_of_gramatica);
 
-          // add a beauty tree
+          // AST
+          bool ast_success = ast_tree.ExecuteRule(line_of_gramatica, steps, i);
+          if (print_info) std::cout << "ast_log: " << ast_success << std::endl;
+          if (!ast_success) break;
+
+          // add a node to beauty tree
           CensNode *tmp_tmp = NULL;
-          tmp_tmp = *stack_nodes.begin();
-          stack_nodes.pop_front();
+          tmp_tmp = *tmp_list_beauty_tree.begin();
+          tmp_list_beauty_tree.pop_front();
           int size_lines_gramatica = gramaticaLL1[line_of_gramatica].size();
           for (int i = size_lines_gramatica - 1; i > 0; i--) {
             CensNode *tmp = new CensNode(gramaticaLL1[line_of_gramatica][i]);
             tmp_tmp->addChildren(tmp);
-            stack_nodes.push_front(tmp);
+            tmp_list_beauty_tree.push_front(tmp);
           }
         } else {
           well_finish = false;
@@ -168,6 +180,8 @@ void RunParser() {
       printer.print();
     }
   }
+  ast_tree.PrintAllNeurons();
+  ast_tree.CreateNeuronGraphExecutable();
 }
 
 }  // namespace CENS

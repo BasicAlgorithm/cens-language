@@ -2,13 +2,13 @@
 Creating neurons
 */
 
-neuron a(inhibitory);
+neuron a(inhibitory,10);
 neuron b(excitatory);
 neuron c(excitatory);
 neuron d(inhibitory);
 
 // Innervating
-a >> c >> d;
+a >> d >> c;
 a >> b;
 
 // Defining input

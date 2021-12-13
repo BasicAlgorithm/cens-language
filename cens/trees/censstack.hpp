@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "../LL1.hpp"
+#include "../LL1Settings.hpp"
 
 namespace CENS {
 
@@ -23,8 +23,7 @@ class CensStack {
     table = tablaLL1;
   }
   std::string TOS() {
-    int size = main_stack.size();
-    return main_stack[size - 1];
+    return main_stack[static_cast<int>(main_stack.size()) - 1];
   }
   bool IsTOSTerminal() {
     int size_stack = main_stack.size();

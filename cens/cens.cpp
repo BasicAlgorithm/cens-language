@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-#include "LL1.hpp"
+#include "LL1Settings.hpp"
 #include "parser.hpp"
 #include "scanner.hpp"
 
@@ -12,7 +12,7 @@ void HowToUse() {
   std::cout << "\tcens.exe <commands> <optional>" << std::endl;
   std::cout << "Commands:" << std::endl;
   std::cout
-      << "\t-default\t\t Consider in_file.txt out_file.txt. No full print.\n";
+      << "\t-default\t\t Consider my_code.cens output_scanner.txt No full print.\n";
   std::cout << "\t\t\t\t Not necessary other commands or optional."
             << std::endl;
   std::cout << "\t-dev\t\t\t Default files names + full print." << std::endl;
@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
     it = find(args.begin(), args.end(), "-dev");
     if (it != args.end()) {
       CENS::print_info = true;
-      CENS::RunScanner("in_file.txt", "out_file.txt");
+      CENS::RunScanner("my_code.cens", "output_scanner.txt");
       CENS::RunParser();
       return 0;
     }
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     it = find(args.begin(), args.end(), "-default");
     if (it != args.end()) {
       CENS::print_info = false;
-      CENS::RunScanner("in_file.txt", "out_file.txt");
+      CENS::RunScanner("my_code.cens", "output_scanner.txt");
       CENS::RunParser();
       return 0;
     }
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
         it++;
         out_file = *it;
       } else {
-        out_file = "out_file.txt";
+        out_file = "output_scanner.txt";
       }
 
       // Argument for print couts
