@@ -47,6 +47,7 @@ class AST {
   std::vector<ASTNode *> ast_nodes;
   std::vector<ASTExecutorNode *> executable_neurons;
   std::vector<OutputNode> neurons_output;
+  std::vector<std::string> matlab_files;
 
   void PrintAllNeurons() {
     std::cout << "PRINT ALL NEURON" << std::endl;
@@ -492,7 +493,6 @@ class AST {
     OutputResults(head);
 
     // Output Matlab File
-    std::vector<std::string> matlab_files;
 
     for (auto &out : neurons_output) {
       std::string file_results_path_ = "neuron_" + out.name + "_graph.m";
@@ -513,15 +513,16 @@ class AST {
       std::string tmp_graph = tmp_title + CENS::graphic;
       base_code_matlab += tmp_graph + CENS::parte_2;
       file_results << base_code_matlab;
+
+      // creating bash code to run matlab graph
       matlab_files.push_back(
           "matlab -nodisplay -nosplash -nodesktop -r \"run('" +
           file_results_path_ + "');\"");
       file_results.close();
     }
-    // bash_code_run_results
-    std::string a =
-        "matlab -nodisplay -nosplash -nodesktop -r \"run('matlab_graph.m');\"";
+  }
 
+  void MatlabGraphics() {
     for (auto &run : matlab_files) {
       int size = run.size();
       char *to_run = new char[size];

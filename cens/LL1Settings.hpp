@@ -13,6 +13,7 @@
 namespace CENS {
 
 bool print_info = false;
+bool print_matlab_graph = false;
 
 const std::vector<std::string> CENS_keywords{
     "SendCurrent",   "RunSystem",      "neuron", "glia", "glutamate",

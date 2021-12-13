@@ -182,6 +182,9 @@ void RunParser() {
   }
   ast_tree.PrintAllNeurons();
   ast_tree.CreateNeuronGraphExecutable();
+  if (CENS::print_matlab_graph) {
+    void MatlabGraphics();
+  }
 }
 
 }  // namespace CENS
