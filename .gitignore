@@ -1,6 +1,6 @@
 # folders
 .vscode/
-others/
+others
 
 # Prerequisites
 *.d
