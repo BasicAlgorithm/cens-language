@@ -15,6 +15,9 @@ void HowToUse() {
   std::cout
       << "\t-o [output_file]\t To define output file with tokens and lexemas."
       << std::endl;
+  std::cout
+      << "\t-s [quantity]\t\t To define initial stimulus to simulation."
+      << std::endl;
   std::cout << "\t-graph \t\t\t Print automatically Matlab graphics. (You have "
                "to have Matlab installed.)"
             << std::endl;
@@ -51,6 +54,16 @@ int main(int argc, char *argv[]) {
       out_file = *it;
     } else {
       std::cout << "ERROR: You need specify output scanner file" << std::endl;
+      HowToUse();
+      return EXIT_FAILURE;
+    }
+
+    // Argument for initial stimulus
+    it = find(args.begin(), args.end(), "-s");
+    if (it != args.end() && ++it != args.end()) {
+      CENS::stimulus = std::stoi(*it);
+    } else {
+      std::cout << "ERROR: You need specify input stimulus to simulation" << std::endl;
       HowToUse();
       return EXIT_FAILURE;
     }

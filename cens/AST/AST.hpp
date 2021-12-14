@@ -619,7 +619,7 @@ class AST {
     }
   }
 
-  void CreateExecutorGraph() {
+  void CreateExecutorGraph(int stimulus) {
     ASTNode *sendcurrent = NULL;
     if (!ExistSendCurrentNode(sendcurrent)) {
       std::cout << "ERROR: CreateExecutorGraph() no SendCurrent node found"
@@ -628,7 +628,7 @@ class AST {
     }
 
     head_executor->node_name = "CENS-Root";
-    head_executor->intensity = 10;
+    head_executor->intensity = stimulus;
     head_executor->type = "Excitatory";
     executable_neurons.push_back(head_executor);
 

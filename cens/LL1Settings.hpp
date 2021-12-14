@@ -14,6 +14,7 @@ namespace CENS {
 
 bool print_info = false;
 bool print_matlab_graph = false;
+int stimulus = 0;
 
 const std::vector<std::string> CENS_keywords{
     "SendCurrent",   "RunSystem",      "neuron", "glia", "glutamate",
@@ -72,7 +73,8 @@ const std::vector<std::vector<std::string>> tablaLL1{
 
 };
 
-std::string parte_1 = "C = 1; % uF/cm^2\n"
+std::string parte_1 =
+    "C = 1; % uF/cm^2\n"
     "% constants; values based on Table 1\n"
     "E_Na = 115 + Vrest; % mV\n"
     "E_K = -6 + Vrest; %mV\n"
@@ -124,7 +126,8 @@ std::string parte_1 = "C = 1; % uF/cm^2\n"
     "    n(i+1) = n(i) + (alphaN *(1-n(i)) - betaN * n(i))*dt;\n"
     "    h(i+1) = h(i) + (alphaH *(1-h(i)) - betaH * h(i))*dt;\n"
     "end\n";
-    std::string graphic = "subplot(2,1,1)\n"
+std::string graphic =
+    "subplot(2,1,1)\n"
     "plot(t(45/dt:end),V(45/dt:end-1), 'LineWidth', 2)\n"
     "xlabel('Time (ms)')\n"
     "ylabel('Voltage (mV)')\n"
@@ -134,7 +137,8 @@ std::string parte_1 = "C = 1; % uF/cm^2\n"
     "xlabel('Time (ms)')\n"
     "ylabel('Voltage (mV)')\n"
     "title('Input')\n";
-    std::string parte_2 = "end\n% calculate alpha m and beta m based on Table 2\n"
+std::string parte_2 =
+    "end\n% calculate alpha m and beta m based on Table 2\n"
     "function [alpha_m, beta_m] = m_equations(V, Vrest)\n"
     "alpha_m = (2.5-0.1*(V-Vrest))/(exp(2.5-0.1*(V-Vrest))-1);\n"
     "beta_m = 4*exp((Vrest-V)/18);\n"
@@ -149,8 +153,6 @@ std::string parte_1 = "C = 1; % uF/cm^2\n"
     "alpha_h = 0.07*exp((Vrest-V)/20);\n"
     "beta_h = 1/(1+exp(3-0.1*(V-Vrest)));\n"
     "end";
-
-
 
 }  // namespace CENS
 

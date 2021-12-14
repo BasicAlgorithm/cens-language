@@ -192,7 +192,7 @@ void RunParser() {
   if (!well_finish_semantic) return;
 
   // Because AST Graph is ready. Then, we can create executor graph
-  ast_tree.CreateExecutorGraph();
+  ast_tree.CreateExecutorGraph(CENS::stimulus);
 
   // When executor graph is ready. We can start simulation
   ast_tree.StartInitialStimulus();
