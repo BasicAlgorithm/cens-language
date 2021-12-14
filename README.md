@@ -1,10 +1,9 @@
 # CENS language
 CENS language (CEntral Nervous System Language) is a project aiming to be a programming language that simulates a neuron system environment. This is also a final project for the compiler course. This repository accepts pull requests.<br>
-**Note:** This project is not complete. It scans code input and analyzes semantically. Other processes needed to be a complete compiler and programming language are under working.
+**Note:** This project is completed.
 
 # Getting started
 The following steps guide you to compile and run a demo code.
-
 
 ## 1. Compile CENS
 On same directory of **main.cpp** execute:
@@ -153,3 +152,8 @@ or:
 
 The below image show graphically the demo:
 ![general_example](images/how_work_1.jpg)
+
+# TODO
+
+- Support to automatic millions neurons creation
+- Parallelism on stimulation input
