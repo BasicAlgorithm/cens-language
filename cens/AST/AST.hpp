@@ -32,14 +32,17 @@ struct OutputNode {
 };
 
 class AST {
- public:
+ private:
   ASTExecutorNode *head_executor = new ASTExecutorNode;
-
   std::vector<ASTNode *> ast_nodes;
   std::vector<ASTExecutorNode *> executable_neurons;
   std::vector<OutputNode> neurons_output;
   std::vector<std::string> matlab_files;
+  std::vector<std::string> matlab_paths;
+  int current_line;
+  int current_step;
 
+ public:
   void BasicPrintASTNodes() {
     std::cout << "PRINT ALL NEURON" << std::endl;
     for (auto &neuron : ast_nodes) {
@@ -66,13 +69,10 @@ class AST {
     return false;
   }
 
-  void MakeNothing(int rule) {
-    std::cout << "MakeNothing() Rule " << rule << std::endl;
-  }
+  void MakeNothing(int rule) {}
 
   // Neuron create Methods
   bool ExistNeuron(std::string neuron_name) {
-    std::cout << "DEBUG" << std::endl;
     auto atomic_count = [&](volatile std::atomic<bool> *exist_n,
                             const auto &t_id, int size,
                             std::string neuron_name) -> void {
@@ -99,34 +99,46 @@ class AST {
 
     return exist_neuron ? true : false;
   }
-  void MakeNeuronNode() {
+  bool MakeNeuronNode() {
     ASTNode *neuron_node = new ASTNode("neuron");
     ast_nodes.emplace_back(std::move(neuron_node));
+    return true;
   }
-  void MakeNeuronIdNode(std::string neuron_name) {
-    ASTNode *neuron_node = new ASTNode(neuron_name);
-    auto tmp = ast_nodes.rbegin();
-    (*tmp)->childrens.emplace_back(std::move(neuron_node));
+  bool MakeNeuronIdNode(std::string neuron_name) {
+    if (!ExistNeuron(neuron_name)) {
+      ASTNode *neuron_node = new ASTNode(neuron_name);
+      auto tmp = ast_nodes.rbegin();
+      (*tmp)->childrens.emplace_back(std::move(neuron_node));
+      return true;
+    } else {
+      std::cout << "ERROR: " << neuron_name
+                << " neuron has already been created." << std::endl;
+      return false;
+    }
   }
-  void MakeInhibitoryNode() {
+  bool MakeInhibitoryNode() {
     ASTNode *type_node = new ASTNode("Inhibitory");
     auto tmp = ast_nodes.rbegin();
     (*tmp)->childrens.emplace_back(std::move(type_node));
+    return true;
   }
-  void MakeExcitatoryNode() {
+  bool MakeExcitatoryNode() {
     ASTNode *type_node = new ASTNode("Excitatory");
     auto tmp = ast_nodes.rbegin();
     (*tmp)->childrens.emplace_back(std::move(type_node));
+    return true;
   }
-  void MakeIntensityNeuronNode(std::string intensity) {
+  bool MakeIntensityNeuronNode(std::string intensity) {
     ASTNode *intensity_node = new ASTNode(intensity);
     auto tmp = ast_nodes.rbegin();
     (*tmp)->childrens.emplace_back(std::move(intensity_node));
+    return true;
   }
-  void MakeInnervationNode() {
+  bool MakeInnervationNode() {
     ASTNode *innveration_node = new ASTNode("innervation");
     auto tmp = ast_nodes.rbegin();
     (*tmp)->childrens.emplace_back(std::move(innveration_node));
+    return true;
   }
 
   // Innervation Methods
@@ -134,8 +146,6 @@ class AST {
     for (auto &neuron : ast_nodes) {
       p = neuron;
       for (auto &neuron_id : neuron->childrens) {
-        // std::cout << "LOOP: " << neuron_id->node_name << " = " << neuron_name
-        //           << std::endl;
         if (neuron_id->node_name == neuron_name) {
           return true;
         }
@@ -151,25 +161,85 @@ class AST {
     ASTNode *node_2 = NULL;
     if (ExistNeuronPointer(neuron_id_1, node_1) &&
         ExistNeuronPointer(neuron_id_2, node_2)) {
-      //  cout to delete
-      std::cout << "What We found node_1: \n"
-                << node_1->node_name << " " << node_1->childrens[0]->node_name
-                << std::endl;
-      std::cout << "What We found node_2: \n"
-                << node_2->node_name << " " << node_2->childrens[0]->node_name
-                << std::endl;
-
       int s_n1 = node_1->childrens.size();
       node_1 = node_1->childrens[s_n1 - 1];
       node_1->childrens.emplace_back(std::move(node_2));
       return true;
     } else {
-      if (node_1 == NULL)
-        std::cout << "ERROR: MakeInnervationConnection() 1 Not exist "
-                  << neuron_id_1 << " neuron" << std::endl;
-      if (node_2 == NULL)
-        std::cout << "ERROR: MakeInnervationConnection() 2 Not exist "
-                  << neuron_id_2 << " neuron" << std::endl;
+      // handling error
+      ExistNeuronPointer(neuron_id_1, node_1);
+      if (node_1 == NULL) {
+        std::cout << "ERROR: When innervate neurons\nLine ";
+        // new handling
+        int q_spaces = 0;
+        bool flag = true;
+        int distance = 0;
+        q_spaces += 5;
+        for (std::vector<std::string>::iterator it_clean =
+                 CENS::clean_code[current_line].begin();
+             it_clean != CENS::clean_code[current_line].end(); it_clean++) {
+          std::cout << *it_clean << " ";
+          if (it_clean == CENS::clean_code[current_line].begin()) {
+            std::cout << " | ";
+            q_spaces += 3;
+          }
+          if (*it_clean != neuron_id_1 && flag) {
+            distance++;
+            q_spaces += it_clean->size();
+            q_spaces++;
+          } else {
+            flag = false;
+          }
+        }
+        std::cout << std::endl;
+        std::string spaces(q_spaces, ' ');
+        std::string signs(
+            (CENS::clean_code[current_line].begin() + distance)->size(), '~');
+
+        std::cout << spaces << signs << std::endl;
+        std::cout << spaces << "|" << std::endl;
+        std::cout << spaces << "Neuron id: " << neuron_id_1
+                  << " have not been created. Try: neuron " << neuron_id_1
+                  << " ( parameters )" << std::endl;
+        // new handling
+      }
+
+      ExistNeuronPointer(neuron_id_2, node_2);
+      if (node_2 == NULL) {
+        std::cout << "ERROR: When innervate neurons\nLine ";
+        // new handling
+        int q_spaces = 0;
+        bool flag = true;
+        int distance = 0;
+        q_spaces += 5;
+        for (std::vector<std::string>::iterator it_clean =
+                 CENS::clean_code[current_line].begin();
+             it_clean != CENS::clean_code[current_line].end(); it_clean++) {
+          std::cout << *it_clean << " ";
+          if (it_clean == CENS::clean_code[current_line].begin()) {
+            std::cout << " | ";
+            q_spaces += 3;
+          }
+          if (*it_clean != neuron_id_2 && flag) {
+            distance++;
+            q_spaces += it_clean->size();
+            q_spaces++;
+          } else {
+            flag = false;
+          }
+        }
+        std::cout << std::endl;
+        std::string spaces(q_spaces, ' ');
+        std::string signs(
+            (CENS::clean_code[current_line].begin() + distance)->size(), '~');
+
+        std::cout << spaces << signs << std::endl;
+        std::cout << spaces << "|" << std::endl;
+        std::cout << spaces << "Neuron id: " << neuron_id_2
+                  << " have not been created. Try: neuron " << neuron_id_2
+                  << " ( parameters )" << std::endl;
+        // new handling
+      }
     }
     return false;
   }
@@ -193,15 +263,54 @@ class AST {
       (*sendcurrent_node)->childrens.emplace_back(std::move(node_1));
       return true;
     } else {
-      std::cout << "ERROR: MakeSendCurrentConnection() Not exist " << neuron_id
-                << " neuron" << std::endl;
+      ExistNeuronPointer(neuron_id, node_1);
+      if (node_1 == NULL) {
+        std::cout << "ERROR: When define input neurons\nLine ";
+        // new handling
+        int q_spaces = 0;
+        bool flag = true;
+        int distance = 0;
+        q_spaces += 5;
+        for (std::vector<std::string>::iterator it_clean =
+                 CENS::clean_code[current_line].begin();
+             it_clean != CENS::clean_code[current_line].end(); it_clean++) {
+          std::cout << *it_clean << " ";
+          if (it_clean == CENS::clean_code[current_line].begin()) {
+            std::cout << " | ";
+            q_spaces += 3;
+          }
+          if (*it_clean != neuron_id && flag) {
+            distance++;
+            q_spaces += it_clean->size();
+            q_spaces++;
+          } else {
+            flag = false;
+          }
+        }
+        std::cout << std::endl;
+        std::string spaces(q_spaces, ' ');
+        std::string signs(
+            (CENS::clean_code[current_line].begin() + distance)->size(), '~');
+
+        std::cout << spaces << signs << std::endl;
+        std::cout << spaces << "|" << std::endl;
+        std::cout << spaces << "Neuron id: " << neuron_id
+                  << " have not been created. Try: neuron " << neuron_id
+                  << " ( parameters )" << std::endl;
+        // new handling
+      }
     }
     return false;
   }
 
   // RunSystem Methods
-  void MakeRunSystemNode() {
+  bool MakeRunSystemNode() {
     auto sendcurrent_node = ast_nodes.rbegin();
+    if (!((*sendcurrent_node)->node_name == "SendCurrent")) {
+      std::cout << "ERROR: MakeRunSystemNode() Last node must be SendCurrent"
+                << std::endl;
+      return false;
+    }
 
     ASTNode *runsystem_node = new ASTNode("RunSystem");
     ast_nodes.emplace_back(std::move(runsystem_node));
@@ -209,9 +318,14 @@ class AST {
     auto rs_node = ast_nodes.rbegin();
     ASTNode *sc_n = &(**sendcurrent_node);
     (*rs_node)->childrens.emplace_back(std::move(sc_n));
+    return true;
   }
 
   bool ExecuteRule(int rule_id, int steps, int line) {
+    // upgrade global variables
+    current_line = line;
+    current_step = steps;
+
     int line_size = static_cast<int>(CENS::clean_code[line].size());
     std::string p0 = CENS::clean_code[line][steps - 1];
     std::string p1 = "--";
@@ -228,20 +342,17 @@ class AST {
     if (steps < line_size) {
       p3 = CENS::clean_code[line][steps];
     }
-    // std::cout << "Analizing: p0 = " << p0) <<
-    // std::endl; std::cout << "Analizing: p1 = " << p1)
-    // << std::endl; std::cout << "Analizing: p2 = " <<
-    // p2) << std::endl; std::cout << "Analizing: p3 = "
-    // << p3) << std::endl;
+
+    if (CENS::print_info) std::cout << "AST: Rule " << rule_id + 1 << std::endl;
     bool is_success = true;
+
     switch (rule_id + 1) {
       case 1: {
         MakeNothing(1);
         break;
       }
       case 2: {
-        std::cout << "AST: Rule 2" << std::endl;
-        MakeNeuronNode();
+        is_success = MakeNeuronNode();
         break;
       }
       case 3: {
@@ -249,7 +360,6 @@ class AST {
         break;
       }
       case 4: {
-        std::cout << "AST: Rule 4" << std::endl;
         MakeSendCurrentNode();
         break;
       }
@@ -258,8 +368,7 @@ class AST {
         break;
       }
       case 6: {
-        std::cout << "AST: Rule 6" << std::endl;
-        MakeNeuronNode();
+        is_success = MakeNeuronNode();
         break;
       }
       case 7: {
@@ -267,7 +376,6 @@ class AST {
         break;
       }
       case 8: {
-        std::cout << "AST: Rule 8" << std::endl;
         MakeSendCurrentNode();
         break;
       }
@@ -276,49 +384,31 @@ class AST {
         break;
       }
       case 10: {
-        std::cout << "AST: Rule 10" << std::endl;
-        if (!ExistNeuron(p2))
-          MakeNeuronIdNode(p2);
-        else {
-          std::cout << "ERROR: " << p2 << " neuron has already been created."
-                    << std::endl;
-          return false;
-        }
+        is_success = MakeNeuronIdNode(p2);
         break;
       }
       case 11: {
-        std::cout << "AST: Rule 11" << std::endl;
-        MakeInhibitoryNode();
+        is_success = MakeInhibitoryNode();
         break;
       }
       case 12: {
-        std::cout << "AST: Rule 12" << std::endl;
-        MakeExcitatoryNode();
+        is_success = MakeExcitatoryNode();
         break;
       }
       case 13: {
-        std::cout << "AST: Rule 13" << std::endl;
-        MakeIntensityNeuronNode(p2);
-        MakeInnervationNode();
+        is_success = MakeIntensityNeuronNode(p2);
+        is_success = MakeInnervationNode();
         break;
       }
       case 14: {
-        std::cout << "AST: Rule 14" << std::endl;
-        MakeInnervationNode();
+        is_success = MakeInnervationNode();
         break;
       }
       case 15: {
-        std::cout << "AST: Rule 15" << std::endl;
-        std::cout << "case 15: p1 = " << p1 << std::endl;
-        std::cout << "case 15: p3 = " << p3 << std::endl;
-
         is_success = MakeInnervationConnection(p1, p3);
         break;
       }
       case 16: {
-        std::cout << "AST: Rule 16" << std::endl;
-        std::cout << "case 16: p0 = " << p0 << std::endl;
-        std::cout << "case 16: p1 = " << p2 << std::endl;
         is_success = MakeInnervationConnection(p0, p2);
         break;
       }
@@ -327,14 +417,10 @@ class AST {
         break;
       }
       case 18: {
-        std::cout << "AST: Rule 18" << std::endl;
-        std::cout << "case 18: p3 = " << p3 << std::endl;
         is_success = MakeSendCurrentConnection(p3);
         break;
       }
       case 19: {
-        std::cout << "AST: Rule 19" << std::endl;
-        std::cout << "case 19: p2 = " << p2 << std::endl;
         is_success = MakeSendCurrentConnection(p2);
         break;
       }
@@ -343,7 +429,6 @@ class AST {
         break;
       }
       case 21: {
-        std::cout << "AST: Rule 21" << std::endl;
         MakeRunSystemNode();
         break;
       }
@@ -374,7 +459,6 @@ class AST {
       ASTExecutorNode *tmp_child = NULL;
       if (ExistOnExecutableNeurons(ast_node->childrens[0]->node_name,
                                    tmp_child)) {
-        std::cout << "A copy  " << std::endl;
         father->childrens.push_back(tmp_child);
         for (auto &child :
              ast_node->childrens[ast_node->childrens.size() - 1]->childrens) {
@@ -388,7 +472,6 @@ class AST {
         if (ast_node->childrens.size() == 4) {
           tmp_child->intensity = std::stoi(ast_node->childrens[2]->node_name);
         }
-        std::cout << "+1  " << std::endl;
         executable_neurons.push_back(tmp_child);
         father->childrens.push_back(tmp_child);
         for (auto &child :
@@ -441,11 +524,14 @@ class AST {
     for (auto &neuron : head->childrens) {
       std::cout << "Neuron id = " << neuron->node_name
                 << " | input = " << neuron->input
-                << " | intensity = " << neuron->intensity
-                << " | output = " << neuron->input + neuron->intensity
-                << " | Threahold = "
-                << ((neuron->input + neuron->intensity) >= -40 ? "yes" : "not")
-                << std::endl;
+                << " | intensity = " << neuron->intensity;
+      if (!neuron->childrens.size()) {
+        std::cout << " | output = " << neuron->input + neuron->intensity
+                  << " | Threahold = "
+                  << ((neuron->input + neuron->intensity) >= -40 ? "yes"
+                                                                 : "not");
+      }
+      std::cout << std::endl;
       OutputResults(neuron);
     }
   }
@@ -506,6 +592,7 @@ class AST {
     // for each output neuron, not all
     for (auto &out : neurons_output) {
       std::string file_results_path_ = "neuron_" + out.name + "_graph.m";
+      matlab_paths.push_back(file_results_path_);
       std::ofstream file_results(file_results_path_, std::ofstream::out);
       std::string base_code_matlab;
       int lenght = 0;
@@ -553,9 +640,13 @@ class AST {
       int size = run.size();
       char *to_run = new char[size];
       strcpy(to_run, run.c_str());
-      std::cout << " execute: " << to_run << std::endl;
       system(to_run);
     }
+    for (auto &run : matlab_paths) {
+      std::cout << " Running Matlab Graphic to: " << run << std::endl;
+    }
+
+    
   }
 };
 

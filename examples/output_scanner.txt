@@ -379,4 +379,956 @@
 <keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
 
 <comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|x> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<literal|2> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|x> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <literal|11> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <identifier|inhibitorys> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <identifier|inhibitorys> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <identifier|inhibitorys> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <identifier|inhibitorys> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|,> <identifier|b> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <identifier|inhibitorys> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|aaa> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|,> <identifier|bb> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <identifier|inhibitorys> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|,> <identifier|b> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|p> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|,> <identifier|b> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|,> <identifier|b> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|,> <identifier|b> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
+<keyword|RunSystem> <separator|;> <comment|/*> 
+
+
+
+<keyword|neuron> <identifier|a> <separator|(> <keyword|inhibitory> <separator|,> <literal|10> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|b> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|c> <separator|(> <keyword|excitatory> <separator|)> <separator|;> 
+<keyword|neuron> <identifier|d> <separator|(> <keyword|inhibitory> <separator|)> <separator|;> 
+
+<comment|//> 
+<identifier|a> <operator|>>> <identifier|d> <operator|>>> <identifier|c> <separator|;> 
+<identifier|a> <operator|>>> <identifier|b> <separator|;> 
+
+<comment|//> 
+<keyword|SendCurrent> <separator|(> <identifier|a> <separator|)> <separator|;> 
+
+<comment|//> 
 <keyword|RunSystem> <separator|;> 

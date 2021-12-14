@@ -29,7 +29,7 @@ void HandlingError(std::vector<std::string>::iterator word, int index,
   } else {
     type_error = "TOS is not Terminal";
   }
-  std::cout << "error " << type_error << ". " << std::endl;
+  std::cout << "ERROR " << type_error << ". " << std::endl;
   // error handling
   int q_spaces = 0;
   bool flag = true;
@@ -94,6 +94,7 @@ void HandlingError(std::vector<std::string>::iterator word, int index,
 void RunParser() {
   // AST
   AST ast_tree;
+  bool well_finish_semantic = true;
 
   // Loop to analize each line of code
   for (int i = 0; i < static_cast<int>(output_scanner.size()); i++) {
@@ -107,7 +108,8 @@ void RunParser() {
     std::list<CensNode *> tmp_list_beauty_tree{head_beauty_tree};
 
     // couts
-    bool well_finish = true;
+    bool well_finish_sintactic = true;
+    bool ast_success = true;
     std::vector<std::string> error_logs;
 
     if (print_info) {
@@ -140,7 +142,8 @@ void RunParser() {
           word++;
           steps++;
         } else {
-          well_finish = false;
+          well_finish_sintactic = false;
+          well_finish_semantic = false;
           HandlingError(word, i, stack.TOS(), error_logs, true);
           break;
         }
@@ -152,9 +155,13 @@ void RunParser() {
           stack.AddExpand(line_of_gramatica);
 
           // AST
-          bool ast_success = ast_tree.ExecuteRule(line_of_gramatica, steps, i);
-          if (print_info) std::cout << "ast_log: " << ast_success << std::endl;
-          if (!ast_success) break;
+          ast_success = ast_tree.ExecuteRule(line_of_gramatica, steps, i);
+          if (CENS::print_info)
+            std::cout << "ast_log: " << ast_success << std::endl;
+          if (!ast_success) {
+            well_finish_semantic = false;
+            break;
+          }
 
           // add a node to beauty tree
           CensNode *tmp_tmp = NULL;
@@ -167,13 +174,14 @@ void RunParser() {
             tmp_list_beauty_tree.push_front(tmp);
           }
         } else {
-          well_finish = false;
+          well_finish_sintactic = false;
+          well_finish_semantic = false;
           HandlingError(word, i, stack.TOS(), error_logs, false);
           break;
         }
       }
     }
-    if (well_finish && print_info) {
+    if (well_finish_sintactic && print_info) {
       tree.Print();
       BeautyTree<CensNode> printer(head_beauty_tree, &CensNode::getChildren,
                                    &CensNode::getData);
@@ -181,6 +189,7 @@ void RunParser() {
     }
   }
   /* === SEMANTIC ANALYSIS ===*/
+  if (!well_finish_semantic) return;
 
   // Because AST Graph is ready. Then, we can create executor graph
   ast_tree.CreateExecutorGraph();
@@ -194,14 +203,15 @@ void RunParser() {
   // Optionally, we can create matlab code to each output neuron
   ast_tree.GenerateMatlabCode();
 
-  // Only if user put a =graph command, automatically print matlab graphics
-  if (CENS::print_matlab_graph) {
-    void MatlabGraphics();
-  }
-
+  // if -debug command was set up
   if (CENS::print_info) {
     ast_tree.PrintAST();
     ast_tree.PrintExecutorGraph();
+  }
+
+  // Only if user put a =graph command, automatically print matlab graphics
+  if (CENS::print_matlab_graph) {
+    ast_tree.MatlabGraphics();
   }
 }
 
