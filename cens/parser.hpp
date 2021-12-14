@@ -180,10 +180,28 @@ void RunParser() {
       printer.print();
     }
   }
-  ast_tree.PrintAllNeurons();
-  ast_tree.CreateNeuronGraphExecutable();
+  /* === SEMANTIC ANALYSIS ===*/
+
+  // Because AST Graph is ready. Then, we can create executor graph
+  ast_tree.CreateExecutorGraph();
+
+  // When executor graph is ready. We can start simulation
+  ast_tree.StartInitialStimulus();
+
+  // When simulation finished. We can show results.
+  ast_tree.PrintSimulationResults();
+
+  // Optionally, we can create matlab code to each output neuron
+  ast_tree.GenerateMatlabCode();
+
+  // Only if user put a =graph command, automatically print matlab graphics
   if (CENS::print_matlab_graph) {
     void MatlabGraphics();
+  }
+
+  if (CENS::print_info) {
+    ast_tree.PrintAST();
+    ast_tree.PrintExecutorGraph();
   }
 }
 

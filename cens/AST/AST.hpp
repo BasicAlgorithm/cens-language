@@ -25,16 +25,6 @@ class ASTNode {
   ASTNode(std::string info) : node_name(info) {}
 };
 
-bool ParallelSearch(std::vector<ASTNode> &ast_nodes, int t_id, int size,
-                    std::string neuron_name) {
-  int init = size * t_id;
-  int end = init + size;
-  for (int i = init; i < end; i++) {
-    if (ast_nodes[i].node_name == neuron_name) return true;
-  }
-  return false;
-}
-
 struct OutputNode {
   std::string name;
   int value;
@@ -43,13 +33,14 @@ struct OutputNode {
 
 class AST {
  public:
-  ASTNode *head = NULL;
+  ASTExecutorNode *head_executor = new ASTExecutorNode;
+
   std::vector<ASTNode *> ast_nodes;
   std::vector<ASTExecutorNode *> executable_neurons;
   std::vector<OutputNode> neurons_output;
   std::vector<std::string> matlab_files;
 
-  void PrintAllNeurons() {
+  void BasicPrintASTNodes() {
     std::cout << "PRINT ALL NEURON" << std::endl;
     for (auto &neuron : ast_nodes) {
       std::cout << "NODE: " << neuron->node_name << "("
@@ -362,36 +353,51 @@ class AST {
     return is_success;
   }
 
+  bool ExistOnExecutableNeurons(std::string neuron_name,
+                                ASTExecutorNode *&node) {
+    for (auto &n : executable_neurons) {
+      if (n->node_name == neuron_name) {
+        node = n;
+        return true;
+      }
+    }
+    return false;
+  }
   // Calculating real graph and results
-  void AddChildrens(ASTExecutorNode *&father, ASTNode *ast_node) {
-    // TODO first looking if node on executables_neurons already exist
+  void AddExecutorNode(ASTExecutorNode *&father, ASTNode *ast_node) {
     if (ast_node->node_name == "SendCurrent") {
       for (auto &child : ast_node->childrens) {
-        AddChildrens(father, child);
+        AddExecutorNode(father, child);
       }
     } else if (ast_node->node_name == "neuron") {
-      ASTExecutorNode *tmp_child = new ASTExecutorNode;
-      tmp_child->node_name = ast_node->childrens[0]->node_name;
-      tmp_child->type = ast_node->childrens[1]->node_name;
-      if (ast_node->childrens.size() == 3) {
-        executable_neurons.push_back(tmp_child);
+      // check if neuron was already created
+      ASTExecutorNode *tmp_child = NULL;
+      if (ExistOnExecutableNeurons(ast_node->childrens[0]->node_name,
+                                   tmp_child)) {
+        std::cout << "A copy  " << std::endl;
         father->childrens.push_back(tmp_child);
-        for (auto &child : ast_node->childrens[2]->childrens) {
-          AddChildrens(tmp_child, child);
+        for (auto &child :
+             ast_node->childrens[ast_node->childrens.size() - 1]->childrens) {
+          AddExecutorNode(tmp_child, child);
         }
-      } else if (ast_node->childrens.size() == 4) {
-        tmp_child->intensity = std::stoi(ast_node->childrens[2]->node_name);
-        executable_neurons.push_back(tmp_child);
-        father->childrens.push_back(tmp_child);
-        for (auto &child : ast_node->childrens[3]->childrens) {
-          AddChildrens(tmp_child, child);
-        }
+        // if not, we create a new ASTExecutorNode
       } else {
-        std::cout << "ERROR: AddChildrens() Unknow size of childrens  "
-                  << std::endl;
+        tmp_child = new ASTExecutorNode;
+        tmp_child->node_name = ast_node->childrens[0]->node_name;
+        tmp_child->type = ast_node->childrens[1]->node_name;
+        if (ast_node->childrens.size() == 4) {
+          tmp_child->intensity = std::stoi(ast_node->childrens[2]->node_name);
+        }
+        std::cout << "+1  " << std::endl;
+        executable_neurons.push_back(tmp_child);
+        father->childrens.push_back(tmp_child);
+        for (auto &child :
+             ast_node->childrens[ast_node->childrens.size() - 1]->childrens) {
+          AddExecutorNode(tmp_child, child);
+        }
       }
     } else {
-      std::cout << "ERROR: AddChildrens() Not SendCurrent or Neuron  "
+      std::cout << "ERROR: AddExecutorNode() Not SendCurrent or Neuron  "
                 << std::endl;
     }
   }
@@ -423,7 +429,10 @@ class AST {
     amplitud_input.pop_front();
     InputStimulus();
   }
-
+  void StartInitialStimulus() {
+    amplitud_input.push_back(head_executor);
+    InputStimulus();
+  }
   void OutputResults(ASTExecutorNode *&head) {
     if (head->childrens.size() == 0) {
       neurons_output.push_back(
@@ -450,12 +459,10 @@ class AST {
     }
   }
 
-  void CreateNeuronGraphExecutable() {
+  void PrintAST() {
     ASTNode *sendcurrent = NULL;
     if (!ExistSendCurrentNode(sendcurrent)) {
-      std::cout
-          << "ERROR: CreateNeuronGraphExecutable() no SendCurrent node found"
-          << std::endl;
+      std::cout << "ERROR: PrintAST() no SendCurrent node found" << std::endl;
       return;
     }
 
@@ -464,36 +471,39 @@ class AST {
     AddChildrensBeautyTreeAST<ASTNode>(sendcurrent, head_beauty_tree);
     BeautyTree<CensNode> printer(head_beauty_tree, &CensNode::getChildren,
                                  &CensNode::getData);
-    std::cout << "\n\t===== ABSTRACT SYNTAX TREE =====\n" << std::endl;
+    std::cout << "\n\t=========================== ABSTRACT SYNTAX TREE "
+                 "===========================\n"
+              << std::endl;
     printer.print();
+  }
 
-    // Executor Graph
-    ASTExecutorNode *head = new ASTExecutorNode;
-    head->node_name = "CENS-Root";
-    head->intensity = 10;
-    head->type = "Excitatory";
-    executable_neurons.push_back(head);
-
-    AddChildrens(head, sendcurrent);
-
-    // beauty tree Executor Graph
+  void PrintExecutorGraph() {
     CensNode *head_beauty_tree_g = new CensNode("");
-    AddChildrensBeautyTreeAST<ASTExecutorNode>(head, head_beauty_tree_g);
+    AddChildrensBeautyTreeAST<ASTExecutorNode>(head_executor,
+                                               head_beauty_tree_g);
     BeautyTree<CensNode> printer_g(head_beauty_tree_g, &CensNode::getChildren,
                                    &CensNode::getData);
-    std::cout << "\n\t===== EXECUTABLE GRAPH =====\n" << std::endl;
+    std::cout << "\n\t=========================== EXECUTABLE GRAPH "
+                 "==========================="
+              << std::endl;
     printer_g.print();
 
-    amplitud_input.push_back(head);
-    InputStimulus();
-
-    // Output print
-    std::cout << head->node_name << " | Initial Stimulus = " << head->intensity
+    std::cout << "Neuron on simulation: " << executable_neurons.size() - 1
               << std::endl;
-    OutputResults(head);
+  }
 
-    // Output Matlab File
+  void PrintSimulationResults() {
+    std::cout << "\n--> Simulation results: (To see them graphically, put "
+                 "-graph command.)"
+              << std::endl;
+    std::cout << head_executor->node_name
+              << " | Initial Stimulus = " << head_executor->intensity
+              << std::endl;
+    OutputResults(head_executor);
+  }
 
+  void GenerateMatlabCode() {
+    // for each output neuron, not all
     for (auto &out : neurons_output) {
       std::string file_results_path_ = "neuron_" + out.name + "_graph.m";
       std::ofstream file_results(file_results_path_, std::ofstream::out);
@@ -520,6 +530,22 @@ class AST {
           file_results_path_ + "');\"");
       file_results.close();
     }
+  }
+
+  void CreateExecutorGraph() {
+    ASTNode *sendcurrent = NULL;
+    if (!ExistSendCurrentNode(sendcurrent)) {
+      std::cout << "ERROR: CreateExecutorGraph() no SendCurrent node found"
+                << std::endl;
+      return;
+    }
+
+    head_executor->node_name = "CENS-Root";
+    head_executor->intensity = 10;
+    head_executor->type = "Excitatory";
+    executable_neurons.push_back(head_executor);
+
+    AddExecutorNode(head_executor, sendcurrent);
   }
 
   void MatlabGraphics() {

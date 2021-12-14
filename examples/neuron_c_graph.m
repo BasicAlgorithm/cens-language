@@ -1,7 +1,7 @@
 function cens_neuron_graph
 Vrest = 0;
 dt = 0.01;
-totalTime = 70; % ms
+totalTime = 0; % ms
 C = 1; % uF/cm^2
 % constants; values based on Table 1
 E_Na = 115 + Vrest; % mV

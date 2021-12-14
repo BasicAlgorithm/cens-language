@@ -7,7 +7,6 @@
 #include "scanner.hpp"
 
 void HowToUse() {
-  std::cout << "error: Not enough arguments.\n" << std::endl;
   std::cout << "Instructions:" << std::endl;
   std::cout << "\tcens.exe <commands> <optional>" << std::endl;
   std::cout << "Commands:" << std::endl;
@@ -16,13 +15,16 @@ void HowToUse() {
   std::cout
       << "\t-o [output_file]\t To define output file with tokens and lexemas."
       << std::endl;
-  std::cout << "\t-graph \t To show matlab results." << std::endl;
+  std::cout << "\t-graph \t\t\t Print automatically Matlab graphics. (You have "
+               "to have Matlab installed.)"
+            << std::endl;
   std::cout << "Optional:" << std::endl;
   std::cout << "\t-debug\t\t\t Print differents couts." << std::endl;
 }
 
 int main(int argc, char *argv[]) {
   if (argc == 1) {
+    std::cout << "ERROR: Not enough arguments.\n" << std::endl;
     HowToUse();
   } else {
     std::vector<std::string> args;
@@ -35,24 +37,22 @@ int main(int argc, char *argv[]) {
 
     // Arguments for specific use
     it = find(args.begin(), args.end(), "-i");
-    if (it != args.end()) {
-      it++;
+    if (it != args.end() && ++it != args.end()) {
       source_file = *it;
     } else {
       std::cout << "ERROR: You need specify source file" << std::endl;
       HowToUse();
-      return 0;
+      return EXIT_FAILURE;
     }
 
     // Argument for output file
     it = find(args.begin(), args.end(), "-o");
-    if (it != args.end()) {
-      it++;
+    if (it != args.end() && ++it != args.end()) {
       out_file = *it;
     } else {
       std::cout << "ERROR: You need specify output scanner file" << std::endl;
       HowToUse();
-      return 0;
+      return EXIT_FAILURE;
     }
 
     // Argument for developer
